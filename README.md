@@ -1,21 +1,4 @@
-Good. Now we move from **normal README** → **portfolio-level README**.
-This is the style you see in strong GitHub profiles.
 
-I’ll give you a **premium README template** with:
-
-* badges
-* preview section
-* clean architecture explanation
-* contributor friendly structure
-* professional presentation
-
-Just replace your current `README.md` with this.
-
----
-
-# 📄 ⭐ PREMIUM `README.md`
-
-```md
 <div align="center">
 
 # 🚀 Teja Solvimate
@@ -287,6 +270,4 @@ If you like this project:
 Built with ❤️ using React + Tailwind
 
 </div>
-```
 
----
