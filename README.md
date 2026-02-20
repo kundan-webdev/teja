@@ -6,7 +6,6 @@
 
 [![Contributors](https://img.shields.io/badge/contributors-5-brightgreen)](https://github.com/kundan-webdev/teja/graphs/contributors)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](http://makeapullrequest.com)
-[![Code Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://standardjs.com)
 
 </div>
 
@@ -33,45 +32,29 @@
 **Kundan Kumar** — Repository Admin & Merge Authority  
 📧 GitHub: [@kundan-webdev](https://github.com/kundan-webdev)
 
-**Responsibilities:**
-- Review & merge PRs
-- Maintain code quality
-- Manage releases
-- Track team progress
-
 ### 👥 Contributors
 
-| Name | GitHub | Role | Current Task |
-|---|---|---|---|
-| **Chiranth H C** | [@chiranth-hc](https://github.com/chiranth-hc) | UI Developer | TBD |
-| **Akash Anand** | [@akash-anand](https://github.com/akash-anand) | Component Dev | TBD |
-| **Thanushree Mnayak** | [@thanushree-mnayak](https://github.com/thanushree-mnayak) | Page Developer | TBD |
-| **Vanshika V Patel** | [@vanshika-patel](https://github.com/vanshika-patel) | Forms & Logic | TBD |
-
-> **Note:** Update GitHub usernames with actual handles
+| Name | GitHub |
+|---|---|
+| **Kundan Kumar** | [@kundan-webdev](https://github.com/kundan-webdev) |
+| **Chiranth H C** | [@chiranth-hc](https://github.com/chiranth-hc) |
+| **Akash Anand** | [@akashba009](https://github.com/akashba009) |
+| **Thanushree Mnayak** | [@Thanunayak](https://github.com/Thanunayak) |
+| **Vanshika V Patel** | [@Vanshikavpatel01](https://github.com/Vanshikavpatel01) |
 
 ---
 
-## 🌿 Branch Strategy (MANDATORY)
+## 🌿 Branch Strategy (Mandatory)
 
-We follow a strict **3-branch model**:
+We follow a simple **3-branch workflow**:
 
 ```
-main        → Production (stable releases only)
-├── dev     → Integration & testing
-    ├── feature/navbar
-    ├── feature/hero-section
-    ├── feature/contact-form
-    └── feature/*
+main → Production (stable code only)
+dev → Testing & integration
+feature/* → Contributor work
 ```
 
-### Branch Purposes
-
-| Branch | Purpose | Who Pushes |
-|---|---|---|
-| `main` | Production-ready stable code | ✅ Admin only |
-| `dev` | Integration + testing branch | ✅ Admin merges PRs here |
-| `feature/*` | Individual contributor work | ✅ All contributors |
+**Branch roles:** `main` = Admin only (production), `dev` = Admin merges PRs (testing), `feature/*` = Contributors work here.
 
 ### 🚨 Golden Rule
 
@@ -79,30 +62,46 @@ main        → Production (stable releases only)
 feature → dev → main
 ```
 
-**❌ NEVER merge `feature` directly into `main`**
+Contributors create PRs from `feature/*` → `dev`, Admin merges `dev` → `main`, and ❌ never merge `feature/*` directly into `main`.
 
 ---
 
 ## 👥 Contributor Workflow
 
-Follow these steps for **every** task:
+Follow these steps for **every task**. Example used below: **adding a navbar**.
+
+---
 
 ### Step 1: Sync Your Local Repository
 
-Before starting work:
+Before starting any work, update your local `dev` branch so you work on the latest code.
 
 ```bash
 git checkout dev
 git pull origin dev
 ```
 
-### Step 2: Create Feature Branch
+**Example:**
+If another contributor already updated the hero section, this step ensures you get those changes before starting your own work.
+
+---
+
+### Step 2: Create a Feature Branch
+
+Always create a separate branch for your task.
 
 ```bash
 git checkout -b feature/your-feature-name
 ```
 
-**Branch Naming Examples:**
+**Example:**
+
+```bash
+git checkout -b feature/navbar
+```
+
+**Branch naming examples:**
+
 ```bash
 feature/navbar
 feature/hero-section
@@ -111,33 +110,47 @@ feature/contact-form
 feature/footer-component
 ```
 
+---
+
 ### Step 3: Work on Your Task
 
-Write clean, tested code following our [Coding Standards](#-coding-standards).
+Now write your code only for that feature.
+
+Example:
+
+- Add navbar component
+- Make it responsive
+- Test mobile menu
+- Follow project coding standards
+
+---
 
 ### Step 4: Commit Changes
 
-Use meaningful commit messages:
+After finishing a logical piece of work, commit with a clear message.
 
 ```bash
 git add .
 git commit -m "feat: add responsive navbar component"
 ```
 
-**Commit Message Format:**
+#### Commit Message Format
+
 ```
 <type>: <description>
-
-Types:
-- feat: new feature
-- fix: bug fix
-- style: CSS/styling changes
-- refactor: code refactoring
-- docs: documentation updates
-- chore: maintenance tasks
 ```
 
+**Types:**
+
+- `feat` → new feature
+- `fix` → bug fix
+- `style` → UI/CSS changes
+- `refactor` → code improvement without changing behavior
+- `docs` → documentation updates
+- `chore` → maintenance tasks
+
 **Examples:**
+
 ```bash
 git commit -m "feat: add hero section with animations"
 git commit -m "fix: navbar mobile menu overflow issue"
@@ -145,20 +158,42 @@ git commit -m "style: update button hover effects"
 git commit -m "refactor: extract reusable Card component"
 ```
 
+---
+
 ### Step 5: Push Your Branch
+
+Upload your feature branch to GitHub.
 
 ```bash
 git push origin feature/your-feature-name
 ```
 
-### Step 6: Create Pull Request
+**Example:**
 
-Go to GitHub and create a PR:
+```bash
+git push origin feature/navbar
+```
 
-**Base branch:** `dev` (NOT `main`)  
-**Compare branch:** `feature/your-feature-name`
+---
 
-**PR Template:**
+### Step 6: Create Pull Request (PR)
+
+Go to GitHub and create a Pull Request.
+
+**Important:**
+
+- Base branch → `dev` (NOT `main`)
+- Compare branch → your feature branch
+
+**Example:**
+
+```
+feature/navbar → dev
+```
+
+Admin will review, test, and merge your PR into `dev`.
+
+Use the following PR description template:
 
 ```markdown
 ## 🎯 What does this PR do?
@@ -180,9 +215,24 @@ Fixes #123
 - [ ] Updated documentation (if needed)
 ```
 
+### 🚨 Workflow Summary
+
+```
+1. Update dev
+2. Create feature branch
+3. Build feature
+4. Commit with proper message
+5. Push branch
+6. Create PR → dev
+```
+
+This keeps the project clean, safe, and easy to manage.
+
+---
+
 ### Step 7: Wait for Review
 
-- Admin will review your PR
+- Admin will review your Pull Request
 - Address any requested changes
 - Once approved, Admin will merge into `dev`
 
@@ -191,7 +241,7 @@ Fixes #123
 ```bash
 git checkout dev
 git pull origin dev
-git branch -d feature/your-feature-name  # Delete local branch
+git branch -d feature/your-feature-name         # Delete local branch
 git push origin --delete feature/your-feature-name  # Delete remote branch
 ```
 
@@ -199,9 +249,9 @@ git push origin --delete feature/your-feature-name  # Delete remote branch
 
 ## 📊 Daily Contribution Tracking
 
-All contributors **MUST** track their daily work. Choose **ONE** of the following systems:
+All contributors **MUST** track their daily work.
 
-### Option A: GitHub Projects (Recommended ⭐)
+### GitHub Projects
 
 **Daily Requirements:**
 1. ✅ Update your issue status when you start work
@@ -209,38 +259,19 @@ All contributors **MUST** track their daily work. Choose **ONE** of the followin
 3. ✅ Comment on issues with daily updates
 
 **Status Flow:**
+
 ```
 📋 Backlog → 🧠 Todo → 🚧 In Progress → 👀 Review → ✅ Done
 ```
 
 **Daily Update Example:**
+
 ```
 Working on navbar component today.
 - ✅ Desktop layout done
 - 🚧 Mobile menu in progress
 - 📅 Target: Complete by EOD
 ```
-
-### Option B: Google Sheets Tracker
-
-If using Google Sheets, update **daily**:
-
-**Sheet Name:** `Teja Daily Contributions`
-
-**Required Columns:**
-
-| Date | Contributor | Task | Branch | PR Link | Status | Notes |
-|---|---|---|---|---|---|---|
-| 19-Feb-2026 | Akash Anand | Navbar Component | `feature/navbar` | [PR #12](link) | In Review | Responsive fixes done |
-| 19-Feb-2026 | Chiranth H C | Hero Section | `feature/hero` | — | In Progress | 60% complete |
-
-**Access Sheet:** [Add Google Sheets Link Here]
-
-**Rules:**
-- ✅ Update **once per day** (before EOD)
-- ✅ One row per work session
-- ✅ Be honest about progress
-- ✅ Add blockers if stuck
 
 ---
 
@@ -263,6 +294,7 @@ All work is managed through **GitHub Projects**.
 Every task is an **Issue**.
 
 **Example Issues:**
+
 ```
 #1 Build Navbar Component
 #2 Hero Section UI with Animations
@@ -282,12 +314,6 @@ Every task is an **Issue**.
 In your PR description, always write:
 
 ```markdown
-Fixes #3
-```
-
-or
-
-```markdown
 Closes #5
 Resolves #12
 ```
@@ -300,62 +326,7 @@ Resolves #12
 
 ---
 
-## 🧑‍💼 Admin Merge Process
-
-*For reference — contributors don't do this*
-
-### Step 1: Review PR
-- Check code quality
-- Test functionality
-- Verify responsive design
-- Ensure issue is linked
-
-### Step 2: Merge into `dev`
-```bash
-# GitHub UI: Merge Pull Request button
-# Target: dev branch
-```
-
-### Step 3: Test Integration
-```bash
-git checkout dev
-git pull origin dev
-npm run dev
-```
-
-**Check:**
-- ❌ No UI breaks
-- ❌ No console errors
-- ❌ No merge conflicts
-- ❌ No layout issues
-
-### Step 4: Release to `main`
-
-When `dev` is stable:
-```bash
-# Create PR: dev → main
-# One clean release
-```
-
----
-
-## 🎨 Coding Standards
-
-### Naming Conventions
-
-```javascript
-// Components
-PascalCase → Button.jsx, Navbar.jsx, Hero.jsx
-
-// Functions & Variables
-camelCase → handleClick, userData, isLoading
-
-// Constants
-UPPER_CASE → API_URL, MAX_ITEMS, DEFAULT_THEME
-
-// CSS Classes (Tailwind)
-kebab-case → btn-primary, card-hover
-```
+## 🖥️ Coding Standards
 
 ### Component Structure
 
@@ -428,6 +399,7 @@ setLoading(true);
 ### Before Opening PR
 
 **Checklist:**
+
 ```bash
 ✅ Code builds: npm run build
 ✅ No errors: npm run dev
@@ -453,6 +425,7 @@ setLoading(true);
 ### PR Description Quality
 
 **✅ GOOD:**
+
 ```markdown
 ## What
 Added responsive navbar with mobile menu
@@ -477,6 +450,7 @@ Fixes #8
 ```
 
 **❌ BAD:**
+
 ```markdown
 fixed navbar
 ```
@@ -523,56 +497,6 @@ git push origin feature/your-branch
 
 ---
 
-## 🔒 Branch Protection Rules
-
-**Admin has configured:**
-
-### `main` branch protection:
-- ✅ Requires pull request
-- ✅ Requires admin approval
-- ✅ No direct pushes allowed
-- ✅ Status checks must pass
-
-### `dev` branch protection:
-- ✅ Requires pull request
-- ✅ At least 1 approval
-- ✅ All checks must pass
-
----
-
-## 💬 Communication
-
-### Where to Ask Questions
-
-| Question Type | Where to Ask |
-|---|---|
-| Stuck on code? | GitHub Discussions |
-| Bug found? | Open an Issue |
-| Feature idea? | Open an Issue with `[Feature Request]` |
-| General question? | Team chat / Discord |
-| Urgent blocker? | Tag admin in issue: `@kundan-webdev` |
-
-### Daily Standup (Async)
-
-**Every day** post in team chat:
-
-```
-📅 [Date]
-✅ Yesterday: Completed navbar desktop layout
-🚧 Today: Working on mobile menu animation
-❓ Blockers: None
-```
-
-### Response Time Expectations
-
-| Type | Expected Response |
-|---|---|
-| PR Review | Within 24 hours |
-| Issue Questions | Within 12 hours |
-| Urgent Blockers | Within 2 hours |
-
----
-
 ## 🎯 Your Success Metrics
 
 You're doing great if:
@@ -583,31 +507,6 @@ You're doing great if:
 ✅ **Clean code** — follows standards, passes reviews  
 ✅ **Responsive UI** — works on all screen sizes  
 ✅ **Good communication** — daily updates, clear questions  
-
----
-
-## 🏆 Contributor Recognition
-
-Outstanding contributors get:
-- ⭐ Featured in README Contributors section
-- 🎖️ GitHub badge on profile
-- 📜 LinkedIn recommendation from Admin
-- 🚀 Priority for future open-source projects
-
----
-
-## 📚 Additional Resources
-
-### Learning Materials
-- [React Official Docs](https://react.dev)
-- [Tailwind CSS Docs](https://tailwindcss.com)
-- [Git Workflow Guide](https://www.atlassian.com/git/tutorials/comparing-workflows)
-
-### Tools We Use
-- **Editor:** VS Code
-- **Browser:** Chrome DevTools
-- **Git GUI:** GitHub Desktop (optional)
-- **Testing:** Manual testing (for now)
 
 ---
 
@@ -639,7 +538,7 @@ A: No. Finish one before starting another.
 A: Ask in the issue or tag the admin. Don't stay stuck.
 
 **Q: Can I pick any issue from the board?**  
-A: Only from **Todo** column. Admin assigns **Backlog** tasks.
+A: Only from the **Todo** column. Admin assigns **Backlog** tasks.
 
 **Q: What if my PR gets rejected?**  
 A: Address the feedback and resubmit. It's a learning process.
@@ -671,7 +570,7 @@ When your PR gets comments:
 4. **Read others' PRs** — learn from teammates
 5. **Use meaningful names** — future you will thank you
 6. **Document complex logic** — help others understand
-7. **Ask early** — don't waste 3 hours on wrong approach
+7. **Ask early** — don't waste 3 hours on the wrong approach
 
 ---
 
@@ -679,8 +578,8 @@ When your PR gets comments:
 
 **Admin Contact:**
 - GitHub: [@kundan-webdev](https://github.com/kundan-webdev)
-- Email: [Add email]
-- LinkedIn: [Add profile]
+- Email: kundan.webdev@gmail.com
+- LinkedIn: [www.linkedin.com/in/kundan-webdev](https://www.linkedin.com/in/kundan-webdev)
 
 **Remember:** There are no stupid questions. Ask early, ask often.
 
