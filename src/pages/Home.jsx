@@ -12,6 +12,18 @@ export default function Home() {
       <Stats />
       <Services />
       <Team />
+
+      {/* New Section Added */}
+      <section style={{ padding: "50px", textAlign: "center", backgroundColor: "#f5f5f5" }}>
+        <h2 style={{ fontSize: "28px", marginBottom: "10px" }}>
+          New Feature Section
+        </h2>
+        <p style={{ fontSize: "16px", color: "#555" }}>
+          This section was developed by Thanu as part of the assigned task.
+        </p>
+      </section>
     </>
   );
 }
+
+
